@@ -2,7 +2,7 @@
   "expo": {
     "name": "SilvinhaHealthApp",
     "slug": "SilvinhaHealthApp",
-    "version": "1.0.0o",
+    "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
