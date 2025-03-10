@@ -1,4 +1,4 @@
 git config --global user.name carraracarlos
 git config --global user.email carlinhos.alberto308@gmail.com
 
-npx create-expo-app@latest SilvinhaHealthApp --template blank
+npx expo start --localhost --android

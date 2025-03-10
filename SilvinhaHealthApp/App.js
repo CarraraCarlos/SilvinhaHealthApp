@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View, TextInput } from 'react-native';
 
 export default function App() {
   return (
@@ -7,6 +7,18 @@ export default function App() {
       <View style={styles.titleBox}>
         <Text style={styles.titleText}>Caio Caraio & Carlão Caraião</Text>
       </View>
+
+      <View style={styles.content}>
+        <Text style={styles.subTitle}>Calculadora de IMC</Text>
+
+      </View>
+
+      <Text style={styles.label}>Altura</Text>
+      <TextInput
+        style={styles.input}
+        placeholder='Ex. 1.70'
+        keyboardType='numeric'
+        />
 
       <StatusBar style="light" />
     </SafeAreaView>
@@ -16,7 +28,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#333333'
+    backgroundColor: '#fff'
   },
   titleBox:{
     alignItems: 'center',
@@ -32,4 +44,25 @@ const styles = StyleSheet.create({
     fontWeight: 'semi-bold',
     marginBottom: 20,
   },
+  content: {
+    flex: 1,
+    padding: 40,
+    width: '100%',
+    backgroundColor: '#fff'
+  },
+  subTitle: {
+    textAlign: 'center',
+    fontSize: 25,
+    color: '#000',
+    fontWeight: 'bold',
+    marginBottom: 40,
+  },
+  label: {
+    color: '#000',
+    fontSize: 18,
+  },
+  input: {
+    height: 40,
+
+  }
 });
