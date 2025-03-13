@@ -1,5 +1,6 @@
-import { StyleSheet, Text, View, SafeAreaView, TextInput } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, TextInput, TouchableOpacity } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
+import Ionicons from "@expo/vector-icons/Ionicons";
 
 export default function App() {
   return (
@@ -27,6 +28,14 @@ export default function App() {
           ></TextInput>
         </View>
 
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => alert('AHHHHHHHHHHHHHHHH')}
+          >
+            <Ionicons name={'calculador-sharp'} size={24} color="#edf2f4" />
+            <Text style={styles.text}>Calcular</Text>
+          </TouchableOpacity>
+
       </View>
       <StatusBar style='light' />
     </SafeAreaView>
@@ -36,44 +45,64 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#EDF2F4',
+    backgroundColor: '#333333',
   },
   titleContainer: {
     alignItems: 'center',
     justifyContent: 'flex-end',
-    height: 130,
-    backgroundColor: '#D90429',
-    borderBottomStartRadius: 25,
-    borderBottomEndRadius: 25,
+    height: 120,
+    backgroundColor: '#4FFFFF',
+    borderBottomStartRadius: 40,
+    borderBottomEndRadius: 40,
   },
   title: {
-    color: "#EDF2F4",
+    color: "#333333",
     fontSize: 28,
     fontWeight: 'bold',
-    marginBottom: 30,
+    marginBottom: 35,
   },
   content: {
     flex: 1,
     padding: 40,
     width: '100%',
-    backgroundColor: '#EDF2F4',
+    backgroundColor: '#333333',
   },
   subTitle: {
     textAlign: 'center',
     fontSize: 24,
-    color: '#D90429',
+    color: '#4FFFFF',
     fontWeight: 'bold',
     marginBottom: 40,
   },
   label:{
-    color: '#000',
+    color: '#edf2f4',
     fontSize: 18,
   },
   input: {
     height: 45,
     width: '100%',
     fontSize: 18,
-    borderColor: '#D90429',
-    borderBottomWidth: 1
+    borderColor: '#4FFFFF',
+    borderWidth: 1,
+    borderRadius: 15,
+    marginVertical: 10,
+  },
+  button: {
+    width: '100%',
+    paddingVertical: 15,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#4FFFFF',
+    borderRadius: 25,
+    marginTop: 40,
+    marginBottom: 10,
+  },
+  text: {
+    color: '#333333',
+    fontSize: 25,
+    fontWeight: 'bold',
+    marginLeft: 5,
+
   }
 });
