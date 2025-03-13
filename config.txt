@@ -1,4 +1,18 @@
+Configurando o GIT:
 git config --global user.name carraracarlos
-git config --global user.email carlinhos.alberto308@gmail.com
+git config --global user.email carloscarrara2008@gmail.com
 
-npx expo start --localhost --android
+Abrir o Terminal: Ctrl + '
+
+Criar um projeto React Native com Expo:
+npx create-expo-app@latest SilvinhaHealthApp --template blank
+
+cd SilvinhaHealthApp
+
+npm i
+
+Executar o projeto:
+npx expo start --localhost --android --y
+
+Biblioteca para roda na web
+npx expo install react-dom react-native-web @expo/metro-runtime
