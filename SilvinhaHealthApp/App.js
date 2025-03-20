@@ -10,6 +10,25 @@ const [imc, setImc] = useState(null);
 const [textButton, setTextButton] = useState("Calcular");
 const [messageImc, setmessageImc] = useState("Preencha o peso e a altura");
 
+function imcCalculator() {
+  setImc((weight / (height * height)).toFixed(2))
+}
+
+function validateImc() {
+  if (weight != null && height != null)
+  {
+    keyboard.dimiss();
+    imcCalculator();
+    setHeight(null);
+    setWeight(null);
+    setTextButton("Calcular Novamente");
+    setmessageImc("Seu IMC é igual a:")
+    return;
+  }
+  setImc(null)
+  setTextButton("Calcular");
+  setmessageImc("Preencha o peso e a altura")
+}
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.titleContainer}>
@@ -22,6 +41,8 @@ const [messageImc, setmessageImc] = useState("Preencha o peso e a altura");
           <Text style={styles.label}>Altura</Text>
           <TextInput
             style={styles.input}
+            onChangeText={setHeight}
+            value={height ?? ''}
             placeholder='Ex. 1.70'
             keyboardType='numeric'
           ></TextInput>
@@ -30,6 +51,8 @@ const [messageImc, setmessageImc] = useState("Preencha o peso e a altura");
           <Text style={styles.label}>Peso</Text>
           <TextInput
             style={styles.input}
+            onChangeText={setWeight}
+            value={weight ??''}
             placeholder='Ex. 80.360'
             keyboardType='numeric'
           ></TextInput>
@@ -37,10 +60,10 @@ const [messageImc, setmessageImc] = useState("Preencha o peso e a altura");
 
         <TouchableOpacity
           style={styles.button}
-          onPress={() => alert('AHHHHHHHHHHHHHHHH')}
+          onPress={() => validateImc()}
           >
             <Ionicons name={'calculador-sharp'} size={24} color="#edf2f4" />
-            <Text style={styles.text}>Calcular</Text>
+            <Text style={styles.text}>{textButton}</Text>
           </TouchableOpacity>
 
           <View style={styles.imcContainer}>
@@ -57,18 +80,18 @@ const [messageImc, setmessageImc] = useState("Preencha o peso e a altura");
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#333333',
+    backgroundColor: '#edf2f4',
   },
   titleContainer: {
     alignItems: 'center',
     justifyContent: 'flex-end',
     height: 120,
-    backgroundColor: '#4FFFFF',
+    backgroundColor: '#008000',
     borderBottomStartRadius: 40,
     borderBottomEndRadius: 40,
   },
   title: {
-    color: "#333333",
+    color: "#edf2f4",
     fontSize: 28,
     fontWeight: 'bold',
     marginBottom: 35,
@@ -77,12 +100,12 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 40,
     width: '100%',
-    backgroundColor: '#333333',
+    backgroundColor: '#edf2f4',
   },
   subTitle: {
     textAlign: 'center',
     fontSize: 24,
-    color: '#4FFFFF',
+    color: '#333333',
     fontWeight: 'bold',
     marginBottom: 40,
   },
@@ -94,7 +117,7 @@ const styles = StyleSheet.create({
     height: 45,
     width: '100%',
     fontSize: 18,
-    borderColor: '#4FFFFF',
+    borderColor: '#10ee90',
     borderWidth: 1,
     borderRadius: 15,
     marginVertical: 10,
@@ -105,7 +128,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#4FFFFF',
+    backgroundColor: '#19ee19',
     borderRadius: 25,
     marginTop: 40,
     marginBottom: 10,
@@ -124,7 +147,7 @@ const styles = StyleSheet.create({
   },
   imcText: {
     fontSize: 18,
-    color: '#ef233c',
+    color: '#333333',
     fontWeight: 'bold'
   },
   imcResult:{
